@@ -1,0 +1,136 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #f5f5f5;
+  color: #1a1a1a;
+  min-height: 100vh;
+}
+
+header {
+  background: #1e3a5f;
+  color: white;
+  padding: 1.5rem 2rem;
+}
+
+header h1 { font-size: 1.4rem; font-weight: 600; }
+header .subtitle { font-size: 0.9rem; opacity: 0.7; margin-top: 0.25rem; }
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* --- Arbre --- */
+#arbre { background: white; border-radius: 8px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+
+.noeud {
+  margin: 0.2rem 0;
+}
+
+.noeud-ligne {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.noeud-ligne:hover { background: #f0f4f8; }
+.noeud-ligne.actif  { background: #dbeafe; }
+
+.noeud-enfants { padding-left: 1.5rem; border-left: 2px solid #e5e7eb; margin-left: 0.75rem; }
+.noeud-enfants.cache { display: none; }
+
+.toggle {
+  width: 18px; height: 18px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; color: #6b7280;
+  flex-shrink: 0;
+}
+
+.icone {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.noeud-nom { flex: 1; font-size: 0.9rem; }
+
+.badge-moy {
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 99px;
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+/* Couleurs par type */
+.type-programme .noeud-ligne { font-weight: 700; }
+.type-cours     .badge-moy   { background: #dcfce7; color: #15803d; }
+.type-session   .badge-moy   { background: #fef9c3; color: #854d0e; }
+.type-groupecours .badge-moy { background: #ede9fe; color: #6d28d9; }
+.type-etudiant  .badge-moy   { background: #fce7f3; color: #be185d; }
+
+/* --- Panneau détail --- */
+#detail {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,.1);
+  align-self: start;
+  position: sticky;
+  top: 1.5rem;
+}
+
+.placeholder { color: #9ca3af; font-size: 0.9rem; }
+
+.detail-type {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  margin-bottom: 0.5rem;
+}
+
+.detail-nom {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.stat-grille {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.stat-carte {
+  background: #f8fafc;
+  border-radius: 6px;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.stat-valeur { font-size: 1.5rem; font-weight: 700; color: #1e3a5f; }
+.stat-label  { font-size: 0.75rem; color: #6b7280; margin-top: 0.25rem; }
+
+.eval-titre { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.5rem; color: #374151; }
+
+.eval-liste { list-style: none; }
+.eval-liste li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 0.85rem;
+}
+.eval-liste li:last-child { border-bottom: none; }
+.eval-note { font-weight: 600; }
